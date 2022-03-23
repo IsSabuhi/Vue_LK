@@ -1,96 +1,109 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar
-      app
-      color="white"
-      flat
-    >
-      <v-container class="py-0 fill-height" v-for="userP in userProfile"
-          :key="userP.name"
-          :to="userP.to"
-          link>
-        <v-avatar
-          class="mr-10"
-          color="grey darken-1"
-          size="32"
-        ></v-avatar>
+  <div>
+    <v-app id="inspire">
+      <v-app-bar
+        app
+        color="blue darken-1"
+        flat
+      >
+        <v-container class="py-0 fill-height">
+          <v-badge 
+            class="mr-4"
+            avatar
+            bordered
+            overlap
+          >
+            <template v-slot:badge>
+              <v-avatar>
+                <v-img src="https://cdn.vuetifyjs.com/images/logos/v.png"></v-img>
+              </v-avatar>
+             </template>
 
-        <strong>{{userProfile.name}}</strong>
-        <v-spacer></v-spacer>
-
-        <v-responsive max-width="260">
-          <v-text-field
-            dense
-            flat
-            hide-details
-            rounded
-            solo-inverted
-            placeholder="Поиск..."
-          ></v-text-field>
-        </v-responsive>
-      </v-container>
-    </v-app-bar>
-
-    <v-main class="grey lighten-3">
-      <v-container>
-        <v-row>
-          <v-col cols="2">
-            <v-sheet rounded="lg">
-              <v-list color="transparent">
-                <v-list-item
-                  v-for="n in 2"
-                  :key="n"
-                  link
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      Вкладка {{ n }}
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-divider class="my-2"></v-divider>
-
-                <v-list-item
-                  link
-                  color="grey lighten-4"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      Обновить
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-sheet>
-          </v-col>
-
-          <v-col>
-            <v-sheet
-              min-height="70vh"
-              rounded="lg"
+             <v-avatar
+              color="grey darken-3"
+              size="40"
             >
-              <!--  -->
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+              <v-icon dark>
+                mdi-account-circle
+              </v-icon>
+            </v-avatar>
+          </v-badge>
+
+          <strong>{{userProfile.name}}</strong>
+          <v-spacer></v-spacer>
+
+          <v-responsive max-width="260">
+            <v-text-field
+              dense
+              flat
+              hide-details
+              rounded
+              solo-inverted
+              placeholder="Поиск..."
+            ></v-text-field>
+          </v-responsive>
+        </v-container>
+      </v-app-bar>
+
+      <v-main class="grey lighten-3">
+        <v-container>
+          <v-row>
+            <v-col cols="3">
+              <v-sheet>
+                <v-list shaped>
+                  <v-list-item-group
+                    v-model="selectedItem"
+                    color="primary"
+                  >
+                    <v-list-item
+                      v-for="item in items"
+                      :key="item.title"
+                      :to="item.to"
+                      link
+                    >
+                      <v-list-item-icon>
+                        <v-icon>{{ item.icon}}</v-icon>
+                      </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>{{item.title}}</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-sheet>
+            </v-col>
+
+            <v-col>
+              <v-sheet
+                min-height="70vh"
+                rounded="lg"
+                elevation="5"
+              >
+                <!--CONTENT  -->
+                <router-view></router-view>
+              </v-sheet>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
 </template>
 
 <script>
   export default {
     data: () => ({
-      links: [
-        {title: 'Профиль', to: '/'},
-        {title: 'Чат', to: '/'},
-        {title: 'Посты', to: '/'},
+      selectedItem: 2,
+      items: [
+        {title: 'Главная', icon: 'mdi-home', to: '/'},
+        {title: 'Профиль', icon: 'mdi-account', to: '/profile'},
+        {title: 'Новые записи', icon: 'mdi-format-list-checks', to: '/newtodo'},
+        {title: 'О нас', icon: 'mdi-information-outline', to: '/about'}
       ],
-      userProfile : [
-        {name: 'Ivan'}
-      ],
-    }),
+      userProfile : {
+        name: 'Ivanov Ivan'
+      },
+    })
   }
 </script>
 
