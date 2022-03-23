@@ -31,7 +31,7 @@
 
           <strong>{{userProfile.name}}</strong>
           <v-spacer></v-spacer>
-
+          
           <v-responsive max-width="260">
             <v-text-field
               dense
@@ -79,7 +79,6 @@
                 rounded="lg"
                 elevation="5"
               >
-                <!--CONTENT  -->
                 <router-view></router-view>
               </v-sheet>
             </v-col>
@@ -93,7 +92,6 @@
 <script>
   export default {
     data: () => ({
-      selectedItem: 2,
       items: [
         {title: 'Главная', icon: 'mdi-home', to: '/'},
         {title: 'Профиль', icon: 'mdi-account', to: '/profile'},

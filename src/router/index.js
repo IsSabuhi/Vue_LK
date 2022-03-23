@@ -27,6 +27,7 @@ const routes = [
     name: 'newtodo',
     component: CreateTodoView
   }
+
 ]
 
 const router = new VueRouter({
