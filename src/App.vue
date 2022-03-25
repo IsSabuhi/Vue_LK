@@ -32,27 +32,18 @@
           <strong>{{userProfile.name}}</strong>
           <v-spacer></v-spacer>
           
-          <v-responsive max-width="260">
-            <v-text-field
-              dense
-              flat
-              hide-details
-              rounded
-              solo-inverted
-              placeholder="Поиск..."
-            ></v-text-field>
-          </v-responsive>
+          
         </v-container>
       </v-app-bar>
 
       <v-main class="grey lighten-3">
         <v-container>
           <v-row>
+
             <v-col cols="3">
               <v-sheet>
                 <v-list shaped>
                   <v-list-item-group
-                    v-model="selectedItem"
                     color="primary"
                   >
                     <v-list-item
@@ -62,11 +53,13 @@
                       link
                     >
                       <v-list-item-icon>
-                        <v-icon>{{ item.icon}}</v-icon>
+                        <v-icon>{{ item.icon }}</v-icon>
                       </v-list-item-icon>
+
                       <v-list-item-content>
                         <v-list-item-title>{{item.title}}</v-list-item-title>
                       </v-list-item-content>
+
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
@@ -95,7 +88,8 @@
       items: [
         {title: 'Главная', icon: 'mdi-home', to: '/'},
         {title: 'Профиль', icon: 'mdi-account', to: '/profile'},
-        {title: 'Новые записи', icon: 'mdi-format-list-checks', to: '/newtodo'},
+        {title: 'Записи', icon: 'mdi-note-plus', to: '/newtodo'},
+        {title: 'История', icon: 'mdi-format-list-checks', to: '/history'},
         {title: 'О нас', icon: 'mdi-information-outline', to: '/about'}
       ],
       userProfile : {
