@@ -1,21 +1,27 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter, { RouteConfig } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import CreateTodoView from '../views/CreateTodoView.vue'
+import AboutView from '../views/AboutView.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes: Array<RouteConfig> = [
+  {
+    path: '/global',
+    name:'Global',
+    component: HomeView,
+    children: [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
+    component: AboutView
   },
   {
     path: '/profile',
@@ -26,7 +32,8 @@ const routes = [
     path: '/newtodo',
     name: 'newtodo',
     component: CreateTodoView
-  }
+  },
+]
 
 ]
 

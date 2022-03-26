@@ -35,6 +35,10 @@
                     </v-btn>
                 </v-container>
             </v-form>
+
+            <div v-for="todo in todos" :key="todo.id">
+                <div>{{todo.title}}</div>
+            </div>
     </div>
 </template>
 
@@ -44,12 +48,19 @@
             valid: true,
             name: '',
             text: '',
+            todos: [
+
+            ],
         }),
         methods: {
             submit () {
-                let a = this.name
-                let b = this.text
-                console.log(a)
+                let newTodo = {
+                id: Date.now(),
+                title: this.name,
+                }
+            this.todo.push(newTodo)
+            this.newTaskTitle = ''
+            console.log(todo)
             },
             reset () {
                 this.$refs.form.reset()
