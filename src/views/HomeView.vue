@@ -1,17 +1,13 @@
 <template>
-  <div>
-    
-  </div>
+  <div></div>
 </template>
 
-<script>
-  import Profile from '../components/Profile.vue'
+<script lang="ts">
+  import Vue from 'vue'
 
-  export default {
-    name: 'Home',
-
+  export default Vue.extend({
     components: {
-      Profile,
+
     },
-  }
+  })
 </script>

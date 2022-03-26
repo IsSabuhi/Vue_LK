@@ -2,20 +2,15 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
-import CreateTodoView from '../views/CreateTodoView.vue'
+import TodoView from '../views/TodoView.vue'
 import AboutView from '../views/AboutView.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/global',
-    name:'Global',
-    component: HomeView,
-    children: [
-  {
     path: '/',
-    name: 'home',
+    name:'home',
     component: HomeView,
   },
   {
@@ -31,13 +26,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/newtodo',
     name: 'newtodo',
-    component: CreateTodoView
-  },
-]
-
+    component: TodoView
+  }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

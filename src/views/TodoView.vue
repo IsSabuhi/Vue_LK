@@ -29,15 +29,17 @@
 </template>
 
 <script>
-import CreateTodoVue from '@/components/CreateTodo.vue'
+import CreateTodoVue from '@/components/CreateTodoComponent.vue'
+import ChangeTodoVue from '@/components/ChangeTodoComponent.vue'
+import DeleteTodoVue from '@/components/DeleteTodoComponent.vue'
     export default {
-        components: {CreateTodoVue},
+        components: {CreateTodoVue, ChangeTodoVue, DeleteTodoVue},
         data: () => ({
             tab: null,
             tabItems: [
                 {tab: 'Создать', content: 'CreateTodoVue'},
-                {tab: 'Редактировать', content: 'CreateTodoVue'},
-                {tab: 'Удалить', content: 'CreateTodoVue'}
+                {tab: 'Редактировать', content: 'ChangeTodoVue'},
+                {tab: 'Удалить', content: 'DeleteTodoVue'}
             ],
         })
     }
