@@ -2,12 +2,11 @@
     <div>
         <v-form 
             ref="form"
-            v-model="valid"
-            lazy-validation
         >
             <v-container >
                 <v-text-field
                     v-model="name"
+                    :rules="nameError"
                     :counter="20"
                     label="Название"
                     required
@@ -22,7 +21,6 @@
                 <v-btn
                     class="mr-4"
                     color="primary"
-                    type="submit"
                     @click="submit"
                 >
                     Сохранить
@@ -36,30 +34,36 @@
                 </v-btn>
             </v-container>
         </v-form>
-        <div v-for="todo in todos" :key="todo.id">
-            <div>{{todo.title}}</div>
-        </div>
+        <card-todo></card-todo>
     </div>
 </template>
 
 <script>
+import CardTodo from './CardTodo.vue'
     export default {
+  components: { CardTodo },
         data: () => ({
             valid: true,
             name: '',
             text: '',
-            todos: [
+            nameError: [
+                v => !!v || 'Требуется указать название заметки',
             ],
+            todos: [],
         }),
         methods: {
             submit () {
                 let newTodo = {
                 id: Date.now(),
-                title: this.name,
+                name: this.name,
+                text: this.text,
                 }
-            this.todo.push(newTodo)
-            this.newTaskTitle = ''
-            console.log(todo)
+            if (!this.name) {
+                
+            } else {
+                this.todos.push(newTodo)
+                this.newTodo = ''
+                }
             },
             reset () {
                 this.$refs.form.reset()
