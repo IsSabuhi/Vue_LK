@@ -1,13 +1,24 @@
 <template>
-  <div></div>
+    <div class="pa-5">
+        <!-- <card-todo
+            v-for="todo in todo_data" 
+            :key="todo.name"
+            :todo_data="todo"
+        /> -->
+    </div>
 </template>
-
-<script lang="ts">
-  import Vue from 'vue'
-
-  export default Vue.extend({
-    components: {
-
-    },
-  })
+<script>
+    export default {
+        name: 'HomeView',
+        // props: {
+        //     todo_data: {
+        //         type: Object,
+        //         required: true
+        //     }
+        // }
+    }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

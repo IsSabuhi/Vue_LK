@@ -23,7 +23,8 @@
                 <v-btn
                     class="mr-4"
                     color="primary"
-                    @click="submit"
+                    :disabled="!valid"
+                    @click="createTodo"
                 >
                     Сохранить
                 </v-btn>
@@ -36,33 +37,40 @@
                 </v-btn>
             </v-container>
         </v-form>
+        
     </div>
 </template>
 
 <script>
+import CardTodo from './CardTodo.vue';
+import {mtodo} from '../main'
     export default {
+  components: { CardTodo },
         data: () => ({
             valid: true,
+            nameError: [
+                v => !!v || 'Требуется указать название заметки'],
             name: '',
             text: '',
-            nameError: [
-                v => !!v || 'Требуется указать название заметки'
-            ],
-            todos: [],
+            todos: [
+                {name: 'qwerty', text: '123qwerqerwq'}
+            ]
         }),
         methods: {
-            submit () {
-                let newTodo = {
-                id: Date.now(),
-                name: this.name,
-                text: this.text,
+            createTodo () {
+                if (this.name != "") {
+                    this.todos.push({
+                        name: this.name,
+                        text: this.text,
+                    })
+                } else {
+                    this.nameError
                 }
-            if (!this.name) {
-                alert("Требуется указать название заметки")
-            } else {
-                this.todos.push(newTodo)
-                this.newTodo = ''
-                }
+                
+                this.name = "",
+                this.text = "",
+                mtodo.$emit(this.todos)
+                this.$refs.form.validate()
             },
             reset () {
                 this.$refs.form.reset()

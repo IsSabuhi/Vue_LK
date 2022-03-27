@@ -33,6 +33,7 @@ import CreateTodoVue from '@/components/CreateTodoComponent.vue'
 import ChangeTodoVue from '@/components/ChangeTodoComponent.vue'
 import DeleteTodoVue from '@/components/DeleteTodoComponent.vue'
     export default {
+        name: 'TodoView',
         components: {CreateTodoVue, ChangeTodoVue, DeleteTodoVue},
         data: () => ({
             tab: null,
