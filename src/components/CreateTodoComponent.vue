@@ -2,6 +2,8 @@
     <div>
         <v-form 
             ref="form"
+            v-model="valid"
+            lazy-validation
         >
             <v-container >
                 <v-text-field
@@ -34,20 +36,17 @@
                 </v-btn>
             </v-container>
         </v-form>
-        <card-todo></card-todo>
     </div>
 </template>
 
 <script>
-import CardTodo from './CardTodo.vue'
     export default {
-  components: { CardTodo },
         data: () => ({
             valid: true,
             name: '',
             text: '',
             nameError: [
-                v => !!v || 'Требуется указать название заметки',
+                v => !!v || 'Требуется указать название заметки'
             ],
             todos: [],
         }),
@@ -59,7 +58,7 @@ import CardTodo from './CardTodo.vue'
                 text: this.text,
                 }
             if (!this.name) {
-                
+                alert("Требуется указать название заметки")
             } else {
                 this.todos.push(newTodo)
                 this.newTodo = ''

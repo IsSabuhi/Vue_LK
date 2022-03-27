@@ -1,16 +1,14 @@
 <template>
-    <div>
-
+    <div class="pa-5">
+        <card-todo></card-todo>
     </div>
 </template>
 
 <script>
+import CardTodo from '@/components/CardTodo.vue'
     export default {
-        data: () => ({
-            todo: [
-                
-            ]
-        })
+        components: { CardTodo },
+
     }
 </script>
 
