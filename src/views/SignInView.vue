@@ -1,51 +1,52 @@
 <template>
-<v-app id="inspire">
-    <div class='sign-in'>
-                  <v-card  class="mx-auto" max-width="500">
+   <v-app id="inspire">
+      <v-content>
+         <v-container fluid fill-height>
+            <v-layout align-center justify-center>
+               <v-flex xs12 sm8 md4>
+                  <v-card class="elevation-12">
                      <v-toolbar dark color="primary">
                         <v-toolbar-title>Авторизация</v-toolbar-title>
                      </v-toolbar>
                      <v-card-text>
                         <v-form>
                            <v-text-field
-                                v-model="lastName"
-                                prepend-icon="mdi-account-outline"
-                                name="login"
-                                label="Логин"
-                                type="text"
+                              prepend-icon="person"
+                              name="login"
+                              label="Логин"
+                              type="text"
                            ></v-text-field>
                            <v-text-field
-                                id="password"
-                                prepend-icon="mdi-lock"
-                                name="password"
-                                label="Пароль"
-                                type="password"
+                              id="password"
+                              prepend-icon="lock"
+                              name="password"
+                              label="Пароль"
+                              type="password"
                            ></v-text-field>
                         </v-form>
                      </v-card-text>
                      <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" to="/home">Login</v-btn>
+                        <v-btn color="primary" to="/home">Войти</v-btn>
                      </v-card-actions>
                   </v-card>
-
-    </div>
-</v-app>
+               </v-flex>
+            </v-layout>
+         </v-container>
+      </v-content>
+   </v-app>
 </template>
 
 <script>
-    export default {
-        name: 'SignInView',
-        data () {
-            return {
-                
-            }
-        },
-    }
+export default {
+   name: 'SignInView',
+   props: {
+      source: String,
+   },
+};
 </script>
 
-<style scoped>
-.sign-in {
 
-}
+<style scoped>
+
 </style>
