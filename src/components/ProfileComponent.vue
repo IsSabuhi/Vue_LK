@@ -5,6 +5,7 @@
         <form>
             <v-text-field
                 :counter="30"
+                v-model="lastName"
                 label="Фамилия"
                 required
             ></v-text-field>
@@ -19,6 +20,7 @@
             ></v-text-field>
             <v-btn
                 class="mr-4"
+                @click="submit"
             >
                 Обновить
             </v-btn>
@@ -27,9 +29,16 @@
 </template>
 
 <script>
+import store from '../store/index'
     export default {
       data () {
         return {
+            lastName: ''
+        }
+      },
+      methods: {
+          submit(){
+              store.commit('setLogin', this.lastName)
           }
       }
     }

@@ -5,13 +5,19 @@ import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import TodoView from '../views/TodoView.vue'
 import AboutView from '../views/AboutView.vue'
+import SignInView from '../views/SignInView.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/sign-in'
+  },
+  {
+    path: '/sign-in',
+    name: 'sign-in',
+    component: SignInView
   },
   {
     path: '/lkhome',

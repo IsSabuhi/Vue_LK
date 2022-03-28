@@ -27,7 +27,7 @@
               </v-icon>
             </v-avatar>
           </v-badge>
-          <strong>{{userProfile.name}}</strong>
+          <strong>{{$store.state.login}}</strong>
           <v-spacer></v-spacer>
         </v-container>
       </v-app-bar>
