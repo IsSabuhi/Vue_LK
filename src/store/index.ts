@@ -5,14 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    login: 'alexey'
+    lName: 'Pargachev',
+    login: 'Alex',
   },
   getters: {
   },
   mutations: {
-    setLogin(state, n){
-      state.login = n;
+    setName(state, lName){
+      state.lName = lName;
+    },
+    setLogin(state, login){
+      state.login = login;
     }
+
   },
   actions: {
   },

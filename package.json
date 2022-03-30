@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "my-awesome-script-name": "openapi-generator-cli generate -i http://127.0.0.1:8000/openapi.json -g typescript-axios -o src/generated"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "vee-validate": "^3.4.14",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",

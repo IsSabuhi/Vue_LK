@@ -11,6 +11,7 @@
             ></v-text-field>
             <v-text-field
                 :counter="20"
+                v-model="Nlogin"
                 label="Имя"
                 required
             ></v-text-field>
@@ -24,25 +25,27 @@
             >
                 Обновить
             </v-btn>
-    </form>
+        </form>
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import store from '../store/index'
-    export default {
-      data () {
-        return {
-            lastName: ''
-        }
-      },
-      methods: {
-          submit(){
-              store.commit('setLogin', this.lastName)
-          }
-      }
+export default Vue.extend({
+    data: () => ({
+        lastName: '' as string,
+        Nlogin: '' as string
+    }),
+    methods: {
+        submit() {
+            store.commit('setName', this.lastName)
+            store.commit('setLogin', this.Nlogin)
+        }  
     }
+})
 </script>
 
 <style scoped>
+
 </style>

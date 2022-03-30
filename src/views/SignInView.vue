@@ -38,12 +38,25 @@
 </template>
 
 <script>
+import {Configuration, UserApi} from '../generated/index'
 export default {
    name: 'SignInView',
    props: {
       source: String,
    },
+   // methods: {
+   //    async signIn() {
+   //       const API = new UserApi(new Configuration({basePath: '/api'}))
+   //       try { 
+   //         const User = await API.getUserById('12')
+   //       } catch(e) {
+
+   //       }
+   //    }
+   // }
 };
+
+
 </script>
 
 
