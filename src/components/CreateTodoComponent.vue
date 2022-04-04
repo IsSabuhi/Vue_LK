@@ -43,7 +43,6 @@
 
 <script>
 import CardTodo from './CardTodo.vue';
-import {mtodo} from '../main'
     export default {
   components: { CardTodo },
         data: () => ({
@@ -66,10 +65,11 @@ import {mtodo} from '../main'
                 } else {
                     this.nameError
                 }
-                
+                localStorage.setItem('name', this.name)
+                localStorage.setItem('text', this.text)
                 this.name = "",
                 this.text = "",
-                mtodo.$emit(this.todos)
+                
                 this.$refs.form.validate()
             },
             reset () {

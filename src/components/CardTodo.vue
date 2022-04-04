@@ -5,11 +5,11 @@
             dark
         >
         <v-card-title class="text-h5">
-            {{todo_data.name}}
+            {{name}}
         </v-card-title>
 
         <v-card-subtitle>
-            {{todo_data.text}}
+            {{text}}
         </v-card-subtitle>
 
         </v-card>
@@ -26,6 +26,13 @@ import {mtodo} from '../main'
                 required: true
             }
         },
+        data: () => ({
+            name: localStorage.getItem('name'),
+            text: localStorage.getItem('text')
+        }), 
+        mounted() {
+            localStorage.getItem('name')
+        }
         
     }
 </script>

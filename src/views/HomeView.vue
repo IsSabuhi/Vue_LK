@@ -1,14 +1,12 @@
 <template>
     <div class="pa-5">
-        <!-- <card-todo
-            v-for="todo in todo_data" 
-            :key="todo.name"
-            :todo_data="todo"
-        /> -->
+        <card-todo />
     </div>
 </template>
 <script>
+import CardTodo from '@/components/CardTodo.vue'
     export default {
+  components: { CardTodo },
         name: 'HomeView',
         // props: {
         //     todo_data: {
@@ -16,6 +14,7 @@
         //         required: true
         //     }
         // }
+        
     }
 </script>
 
